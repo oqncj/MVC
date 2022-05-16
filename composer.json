@@ -2,6 +2,8 @@
     "name": "oqncj/mvc-v2",
     "version": "0.0.1",
     "minimum-stability": "dev",
+    "license": "MIT",
+    "type": "library",
     "autoload": {
         "psr-4": {
             "src\\": "src/"
