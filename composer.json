@@ -1,5 +1,5 @@
 {
-    "name": "lee/mvc-v2",
+    "name": "oqncj/mvc-v2",
     "version": "0.0.1",
     "autoload": {
         "psr-4": {
