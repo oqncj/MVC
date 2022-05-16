@@ -1,0 +1,12 @@
+{
+    "name": "lee/mvc-v2",
+    "version": "0.0.1",
+    "autoload": {
+        "psr-4": {
+            "src\\": "src/"
+        }
+    },
+    "require": {
+        "filp/whoops": "^2.14"
+    }
+}
