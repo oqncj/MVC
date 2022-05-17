@@ -16,7 +16,7 @@ class SessionServiceProvider extends ServiceProvider{
     }
 
     public static function boot() {
-        parent::boot();
+
     }
 
 }

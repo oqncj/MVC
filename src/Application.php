@@ -6,7 +6,7 @@ use src\Support\ServiceProvider;
 
 class Application {
 
-    private mixed $providers = [];
+    private $providers = [];
 
     public function __construct($providers = []) {
 
