@@ -13,8 +13,7 @@ class Request {
     }
 
     public static function getPath() {
-
-        return $_SERVER['PATH_INFO'] ?? '/';
+        return $_SERVER['REQUEST_URI'] ?? '/';
 
     }
 

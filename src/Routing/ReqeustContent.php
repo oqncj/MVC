@@ -2,7 +2,7 @@
 
 namespace src\Routing;
 
-class ReqeustContent {  // Application Rull
+class ReqeustContent {  //
 
     public $method;
 
@@ -22,15 +22,12 @@ class ReqeustContent {  // Application Rull
     }
 
     public function match( $url ) {
-
-        $urlParts = explode( '/', $url );
-        $urlPattern = explode( '/', $this->path );
-
-        if ( count( $urlParts ) == count( $urlPattern ) ) {
-
+        $urlParts = explode( '/', $url ); // for Home
+        $urlPattern = explode( '/', $this->path ); // /pages  <- Path
+        if ( $url === $this->path ) {
             $urlParam = [];
             foreach ( $urlPattern as $key => $part ) {
-                if ( preg_match( '/^{.*}$/' ,$part) ) {
+                if ( preg_match( '/(\/.*)$/', $part ) ) { // hmm.....??
                     $urlParam[$key] = $part;
                 } else {
                     if ( $urlParts[$key] !== $part ) {
@@ -40,14 +37,14 @@ class ReqeustContent {  // Application Rull
             }
             return count( $urlParam ) < 1
                 ? []
-                : array_map( fn( $k ) => $urlParts[$k], array_keys( $urlParam ) );
+                : array_map( fn( $test ) => $urlParts[$test], array_keys( $urlParam ) ); //
         }
     }
 
     public function runMiddlewares() {
 
-        foreach ($this->middleware as $middlewares){
-            if(!$middlewares::process()){
+        foreach ( $this->middleware as $middlewares ) {
+            if ( !$middlewares::process() ) {
                 return false;
             }
         }
